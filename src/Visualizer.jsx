@@ -218,43 +218,31 @@ export default class Visualizer extends Component {
           </div>
 
           <div className={"dropdown" + invisibleOrNot}>
-            <button
-              className="btn btn-light dropdown-toggle navbtn"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              disabled={this.state.rendering}
-            >
-              Actions
-            </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li>
-                <button
-                  type="button"
-                  className="btn btn-light navbtn"
-                  onClick={() => this.state.goFunction()}
-                  data-toggle={
-                    this.state.currentAlgorithm === null ? "modal" : ""
-                  }
-                  data-target="#setAlgoModal"
-                  disabled={
-                    this.state.mode === "ai" &&
-                    this.state.currentAlgorithm === "Minimax"
-                  }
-                >
-                  Go!
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-light navbtn"
-                  onClick={() => this.state.resetFunction()}
-                >
-                  Reset
-                </button>
-              </li>
+              <button
+                type="button"
+                className="btn btn-secondary navbtn"
+                onClick={() => this.state.goFunction()}
+                data-toggle={
+                  this.state.currentAlgorithm === null ? "modal" : ""
+                }
+                data-target="#setAlgoModal"
+                disabled={
+                  this.state.mode === "ai" &&
+                  this.state.currentAlgorithm === "Minimax"
+                }
+              >
+                Go!
+              </button>
             </div>
+            <div className={"dropdown" + invisibleOrNot}>
+              <button
+                type="button"
+                className="btn btn-secondary navbtn"
+                onClick={() => this.state.resetFunction()}
+              >
+                Reset
+              </button>
+          
           </div>
 
           <a
