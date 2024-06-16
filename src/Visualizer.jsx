@@ -2,6 +2,8 @@ import React, { Component } from "react";
 // import TextLoop from "react-text-loop"mport PathFindingVisualizer from './PathFindingVisualizer/PathFindingVisualizer';
 import SortingVisualizer from "./SortingVisualizer/SortingVisualizer";
 import "./Visualizer.css";
+import { CgGitFork } from "react-icons/cg";
+import { AiFillStar } from "react-icons/ai";
 // import AIVisualizer from './AIVisualizer/AIVisualizer';
 
 export default class Visualizer extends Component {
@@ -38,14 +40,14 @@ export default class Visualizer extends Component {
 
   render() {
     let renderObj = null;
-    if (this.state.mode === "pathfinding") {
-      renderObj = (
-        <PathFindingVisualizer
-          setVisualizerRendering={this.changeRenderingState}
-          getFunctions={this.getFunctions}
-        />
-      );
-    } else if (this.state.mode === "sorting") {
+    // if (this.state.mode === "pathfinding") {
+    //   renderObj = (
+    //     <PathFindingVisualizer
+    //       setVisualizerRendering={this.changeRenderingState}
+    //       getFunctions={this.getFunctions}
+    //     />
+    //   );}
+     if (this.state.mode === "sorting") {
       renderObj = (
         <SortingVisualizer
           setVisualizerRendering={this.changeRenderingState}
@@ -107,7 +109,7 @@ export default class Visualizer extends Component {
     let algorithms = this.state.algorithms;
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-dark" >
           <button
             onClick={() => {
               if (!this.state.rendering) {
@@ -246,17 +248,13 @@ export default class Visualizer extends Component {
           </div>
 
           <a
-            href="https://github.com/JasonFengGit"
+            href="https://github.com/Znaxh/Algo-Visualizer"
             style={{ marginLeft: "32%" }}
           >
-            <img
-              className="githubimg"
-              src="https://github.com/JasonFengGit/Visualizer/raw/master/src/Github_icon.png"
-              width="40px"
-              height="40px"
-              style={{ opacity: "0.7 !important" }}
-              alt="image"
-            ></img>
+            <button type="button" className="githubimg" onClick={()=>{ window.open("https://github.com/Znaxh/Algo-Visualizer", "_blank")}}>
+              <CgGitFork />
+              <AiFillStar />
+            </button>
           </a>
         </nav>
 

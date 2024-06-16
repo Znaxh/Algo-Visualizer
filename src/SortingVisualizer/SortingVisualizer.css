@@ -30,6 +30,10 @@
     
 }
 
+.code{
+    grid-row-gap: 5px;
+}
+
 @keyframes sortingDescriptionAnimation{
     0%{
         margin-top: 0%;

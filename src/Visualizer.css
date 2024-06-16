@@ -217,7 +217,9 @@ h1+.mainpage-b{
 }
 
 .githubimg{
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border-radius: 5px;
+    width: 70px;
 }

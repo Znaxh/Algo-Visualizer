@@ -1,0 +1,114 @@
+/* src/components/CodeDisplay.css */
+
+.code-container {
+  position: relative;
+  margin-top: 20px;
+}
+
+.code-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background-color: rgb(46, 52, 59);
+  color: #dcdcdc;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  margin-top: -30px;
+  z-index: 1;
+}
+
+.circles-container {
+  display: flex;
+  margin-right: 5px;
+  align-items: center;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.language-buttons {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Push buttons to the right */
+}
+
+.language-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  gap: 5px;
+  width: 180px;
+  color: #dcdcdc;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: px;
+  padding: 10px; /* Add padding here */
+  border-top-right-radius: 5px; /* Rounded border */
+  border-top-left-radius: 5px; /* Rounded border */
+  transition: background-color 0.3s ease; /* Smooth transition for background-color */
+}
+
+.language-buttons button.active {
+  
+  background-color: black; /* Black fill when active */
+  color: white; /* White text when active */
+  margin-top: 3; /* Reset any top margin */
+  margin-bottom: 0; /* Reset any bottom margin */
+  flex: 1; /* Allow button to take full height */
+}
+
+.copy-section {
+  display: flex;
+  align-items: center;
+}
+
+.copy-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.copy-button:hover {
+  background-color: #0056b3;
+}
+
+.copy-button.clicked {
+  background-color: #6c757d; /* Gray background when clicked */
+  color: white; /* White text when clicked */
+}
+
+.copy-success {
+  margin-left: 10px;
+  color: #28a745;
+}
+
+.syntax-highlighter {
+  margin: 0;
+  padding: 10px;
+  margin-top: 40px;
+  font-size: 14px;
+  background-color: #2e2e2e;
+  color: #d4d4d4;
+  border-radius: 4px;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+}
