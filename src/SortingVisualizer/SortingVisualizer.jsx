@@ -3,7 +3,6 @@ import './SortingVisualizer.css';
 import Pile from './Pile/Pile';
 import { selectionSort, bubbleSort, insertionSort, mergeSort, quickSort } from '../Algorithm/sortingAlgorithms';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 export default class SortingVisualizer extends Component {
     constructor(props) {
@@ -15,7 +14,7 @@ export default class SortingVisualizer extends Component {
             maxPile: 80,
             changingPiles: [],
             pileDelayTimes: [30, 40, 40, 80, 80],
-            DelayTimesSizeBased: {'fast': [15, 20, 20, 40, 40], 'median': [30, 40, 40, 80, 80], 'slow': [60, 80, 80, 160, 160]},
+            DelayTimesSizeBased: {'fast': [15, 20, 20, 40, 40], 'medium': [30, 40, 40, 80, 80], 'slow': [60, 80, 80, 160, 160]},
             colorSetIndex: getRandomInt(0, 3),
             currentAlgorithm: -1,
             descriptions: ['Selection Sort: repeatedly find the minimum element from the unsorted part and append it to the sorted part.', 
@@ -24,8 +23,8 @@ export default class SortingVisualizer extends Component {
                            'Merge Sort: divide the array into two halves, sort them recursively using merge sort, and then merge the two halves.',
                            'Quick Sort: choose an element as pivot, arrange the array such that the elements smaller than pivot are on its left and others are on its right, sort the two halves recursively.'],
             unsortedPiles: [],
-            speed: "median",
-            size: "median",
+            speed: "medium",
+            size: "medium",
             algorithms: ['Selection Sort', 'Bubble Sort', 'Insertion Sort', 'Merge Sort', 'Quick Sort'],
             sortingAlgorithms: [selectionSort, bubbleSort, insertionSort, mergeSort, quickSort]
         };
@@ -114,7 +113,7 @@ export default class SortingVisualizer extends Component {
 
     setSize(s) {
         if(this.state.size === s) return;
-        let sizes = {"small": 20, "median": 30, "large": 40};
+        let sizes = {"small": 20, "medium": 30, "large": 40};
         this.setState({ size: s, numPiles: sizes[s] });
         this.state.numPiles = sizes[s];
         const piles = this.initializePiles();
@@ -151,15 +150,15 @@ export default class SortingVisualizer extends Component {
                 
                 <div className="d-flex" style={{marginLeft: "37%", marginTop: "10px"}}>
                     <div className="dropdown 1">
-                        <button className="btn btn-outline-dark dropdown-toggle" type="button" disabled={this.state.rendering} id="dropdownMenuSpeed" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ marginRight: "5px", height: "30px", width: "150px" }}>
+                        <button className="btn btn-dark dropdown-toggle" type="button" disabled={this.state.rendering} id="dropdownMenuSpeed" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ marginRight: "5px", height: "30px", width: "150px" }}>
                             <p style={{ "marginTop": "-5px" }}>{`Speed: ${this.state.speed}`}</p>
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuSpeed">
                             <li key="slow">
                                 <button type="button" className="btn btn-light navbtn" style={{ height: "30px" }} onClick={() => this.setSpeed('slow')}><p style={{ "marginTop": "-5px" }}>{`slow`}</p></button>
                             </li>
-                            <li key="median">
-                                <button type="button" className="btn btn-light navbtn" style={{ height: "30px" }} onClick={() => this.setSpeed('median')}><p style={{ "marginTop": "-5px" }}>{`median`}</p></button>
+                            <li key="medium">
+                                <button type="button" className="btn btn-light navbtn" style={{ height: "30px" }} onClick={() => this.setSpeed('medium')}><p style={{ "marginTop": "-5px" }}>{`medium`}</p></button>
                             </li>
                             <li key="fast">
                                 <button type="button" className="btn btn-light navbtn" style={{ height: "30px" }} onClick={() => this.setSpeed('fast')}><p style={{ "marginTop": "-5px" }}>{`fast`}</p></button>
@@ -167,15 +166,15 @@ export default class SortingVisualizer extends Component {
                         </div>
                     </div>
                     <div className="dropdown 1">
-                        <button className="btn btn-outline-dark dropdown-toggle" type="button" disabled={this.state.rendering} id="dropdownMenuSize" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ marginLeft: "5px", height: "30px", width: "150px" }}>
+                        <button className="btn btn-dark dropdown-toggle" type="button" disabled={this.state.rendering} id="dropdownMenuSize" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ marginLeft: "5px", height: "30px", width: "150px" }}>
                             <p style={{ "marginTop": "-5px" }}>{`Size: ${this.state.size}`}</p>
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuSize">
                             <li key="small">
                                 <button type="button" className="btn btn-light navbtn" style={{ height: "30px" }} onClick={() => this.setSize('small')}><p style={{ "marginTop": "-5px" }}>{`small`}</p></button>
                             </li>
-                            <li key="median">
-                                <button type="button" className="btn btn-light navbtn" style={{ height: "30px" }} onClick={() => this.setSize('median')}><p style={{ "marginTop": "-5px" }}>{`median`}</p></button>
+                            <li key="medium">
+                                <button type="button" className="btn btn-light navbtn" style={{ height: "30px" }} onClick={() => this.setSize('medium')}><p style={{ "marginTop": "-5px" }}>{`medium`}</p></button>
                             </li>
                             <li key="large">
                                 <button type="button" className="btn btn-light navbtn" style={{ height: "30px" }} onClick={() => this.setSize('large')}><p style={{ "marginTop": "-5px" }}>{`large`}</p></button>
@@ -184,8 +183,8 @@ export default class SortingVisualizer extends Component {
                     </div>
                 </div>
                 
-                <h6 className='algoDescription'>{this.state.currentAlgorithm === -1 ? "Welcome to Sorting. Select an algorithm first." : this.state.descriptions[this.state.currentAlgorithm]}</h6>
-                <h5 className='algoComplexity' style={{marginTop: "-4.5%", color:"rgb(90,90,90)"}}>{
+                <h6 className='algoDescription'>{this.state.currentAlgorithm === -1 ? "Select an algorithm first. To get started" : this.state.descriptions[this.state.currentAlgorithm]}</h6>
+                <h5 className='algoComplexity' style={{marginTop: "-4.5%", color:"rgb(10,10,10)"}}>{
                     this.state.currentAlgorithm === -1 ? 
                         "" : this.state.currentAlgorithm < 3 ?
                             nSquare : nLogn

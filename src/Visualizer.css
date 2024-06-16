@@ -34,7 +34,7 @@
         color: white;
     }
     100%{
-        color: rgb(104, 104, 104);
+        color: rgb(146, 150, 125);
     }
 }
 .welbotron{
@@ -79,7 +79,7 @@
 
 @keyframes welcomeAnimation{
     0%{
-        color:rgb(235, 235, 235);
+        color:rgb(146, 150, 125);
     }
     100%{
         color:rgb(0, 0, 0);
