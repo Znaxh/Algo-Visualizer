@@ -47,7 +47,7 @@ export default class Visualizer extends Component {
     //       getFunctions={this.getFunctions}
     //     />
     //   );}
-     if (this.state.mode === "sorting") {
+    if (this.state.mode === "sorting") {
       renderObj = (
         <SortingVisualizer
           setVisualizerRendering={this.changeRenderingState}
@@ -74,31 +74,6 @@ export default class Visualizer extends Component {
               </p>
               <p className="lead">Get Better Understanding Of Algorithms </p>
             </h1>
-            {/* <a href='#' className='mainpage-b' onClick={() => {
-                            if (!this.state.rendering) {
-                                this.setState({ mode: 'pathfinding' });
-                                this.setState({ currentAlgorithm: null, pathClicked: true });
-                            }
-                        }} data-toggle={this.state.pathClicked ? "" : "modal"} data-target="#pathIntroModal">
-                            <span></span>
-                            PATH FINDING
-                        </a>
-                        <a href='#' className='mainpage-b' onClick={() => {
-                            if (!this.state.rendering) {
-                                this.setState({ mode: 'sorting', currentAlgorithm: null, sortingClicked: true });
-                            }
-                        }} data-toggle={this.state.sortingClicked ? "" : "modal"} data-target="#sortingIntroModal">
-                            <span></span>
-                            SORTING
-                        </a>
-                        <a href='#' className='mainpage-b' onClick={() => {
-                            if (!this.state.rendering) {
-                                this.setState({ mode: 'ai', currentAlgorithm: null, AIClicked: true });
-                            }
-                        }} data-toggle={this.state.AIClicked ? "" : "modal"} data-target="#aiIntroModal">
-                            <span></span>
-                            ARTIFICIAL INTELLIGENCE
-                        </a> */}
           </div>
         </div>
       );
@@ -109,38 +84,85 @@ export default class Visualizer extends Component {
     let algorithms = this.state.algorithms;
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-dark" >
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
           <button
             onClick={() => {
               if (!this.state.rendering) {
                 this.setState({ mode: "main" });
               }
             }}
-            type="button"
-            className="btn btn-dark navbtn"
+            className="bg-dark"
             disabled={this.state.rendering}
           >
-            Main
-          </button>
-
-          <button
-            onClick={() => {
-              if (!this.state.rendering) {
-                this.setState({
-                  mode: "pathfinding",
-                  currentAlgorithm: null,
-                  pathClicked: true,
-                });
-                this.state.setAlgorithm(-1);
-              }
-            }}
-            type="button"
-            className="btn btn-dark navbtn"
-            data-toggle={this.state.pathClicked ? "" : "modal"}
-            data-target="#pathIntroModal"
-            disabled={this.state.rendering}
-          >
-            Pathfinding
+            <svg
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="none"
+              width="30"
+              height="30"
+            >
+              <g stroke-width="0"></g>
+              <g
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke="#050505"
+                stroke-width="0.672"
+              >
+                <path
+                  fill="#ffffff"
+                  d="M6,9A3,3,0,1,1,9,6,3,3,0,0,1,6,9ZM6,5A1,1,0,1,0,7,6,1,1,0,0,0,6,5Z"
+                ></path>
+                <path
+                  fill="#ffffff"
+                  d="M12,15a3,3,0,1,1,3-3A3,3,0,0,1,12,15Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,12,11Z"
+                ></path>
+                <path
+                  fill="#ffffff"
+                  d="M18,9a3,3,0,1,1,3-3A3,3,0,0,1,18,9Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,18,5Z"
+                ></path>
+                <path
+                  fill="#ffffff"
+                  d="M18,21a3,3,0,1,1,3-3A3,3,0,0,1,18,21Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,18,17Z"
+                ></path>
+                <path
+                  fill="#ffffff"
+                  d="M6,21a3,3,0,1,1,3-3A3,3,0,0,1,6,21Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,6,17Z"
+                ></path>
+                <rect
+                  fill="#ffffff"
+                  height="4.83"
+                  transform="translate(-3.73 9) rotate(-45)"
+                  width="2"
+                  x="8"
+                  y="6.59"
+                ></rect>
+                <rect
+                  fill="#ffffff"
+                  height="2"
+                  transform="translate(-1.97 13.24) rotate(-45)"
+                  width="4.83"
+                  x="12.59"
+                  y="8"
+                ></rect>
+                <rect
+                  fill="#ffffff"
+                  height="2"
+                  transform="translate(-7.97 10.76) rotate(-45)"
+                  width="4.83"
+                  x="6.59"
+                  y="14"
+                ></rect>
+                <rect
+                  fill="#ffffff"
+                  height="4.83"
+                  transform="translate(-6.21 15) rotate(-45)"
+                  width="2"
+                  x="14"
+                  y="12.59"
+                ></rect>
+              </g>
+            </svg>
           </button>
 
           <button
@@ -161,26 +183,6 @@ export default class Visualizer extends Component {
             disabled={this.state.rendering}
           >
             Sorting
-          </button>
-
-          <button
-            onClick={() => {
-              if (!this.state.rendering) {
-                this.setState({
-                  mode: "ai",
-                  currentAlgorithm: null,
-                  AIClicked: true,
-                });
-                this.state.setAlgorithm(-1);
-              }
-            }}
-            type="button"
-            className="btn btn-dark navbtn"
-            data-toggle={this.state.AIClicked ? "" : "modal"}
-            data-target="#aiIntroModal"
-            disabled={this.state.rendering}
-          >
-            AI
           </button>
 
           <div className={"dropdown" + invisibleOrNot}>
@@ -220,38 +222,44 @@ export default class Visualizer extends Component {
           </div>
 
           <div className={"dropdown" + invisibleOrNot}>
-              <button
-                type="button"
-                className="btn btn-secondary navbtn"
-                onClick={() => this.state.goFunction()}
-                data-toggle={
-                  this.state.currentAlgorithm === null ? "modal" : ""
-                }
-                data-target="#setAlgoModal"
-                disabled={
-                  this.state.mode === "ai" &&
-                  this.state.currentAlgorithm === "Minimax"
-                }
-              >
-                Go!
-              </button>
-            </div>
-            <div className={"dropdown" + invisibleOrNot}>
-              <button
-                type="button"
-                className="btn btn-secondary navbtn"
-                onClick={() => this.state.resetFunction()}
-              >
-                Reset
-              </button>
-          
+            <button
+              type="button"
+              className="btn btn-secondary navbtn"
+              onClick={() => this.state.goFunction()}
+              data-toggle={this.state.currentAlgorithm === null ? "modal" : ""}
+              data-target="#setAlgoModal"
+              disabled={
+                this.state.mode === "ai" &&
+                this.state.currentAlgorithm === "Minimax"
+              }
+            >
+              Go!
+            </button>
+          </div>
+          <div className={"dropdown" + invisibleOrNot}>
+            <button
+              type="button"
+              className="btn btn-secondary navbtn"
+              onClick={() => this.state.resetFunction()}
+            >
+              Reset
+            </button>
           </div>
 
           <a
             href="https://github.com/Znaxh/Algo-Visualizer"
             style={{ marginLeft: "32%" }}
           >
-            <button type="button" className="githubimg" onClick={()=>{ window.open("https://github.com/Znaxh/Algo-Visualizer", "_blank")}}>
+            <button
+              type="button"
+              className="githubimg"
+              onClick={() => {
+                window.open(
+                  "https://github.com/Znaxh/Algo-Visualizer",
+                  "_blank"
+                );
+              }}
+            >
               <CgGitFork />
               <AiFillStar />
             </button>
