@@ -1,8 +1,18 @@
-# React + Vite
+# Algo-Visualizer
+Algo-Visualizer is a dynamic and interactive web application built with React, Vite, and Bootstrap that allows users to visualize various sorting algorithms. The current version of the project includes visualizations for selection sort, merge sort, bubble sort, quick sort, and insertion sort. Future updates may include additional algorithms and features.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##Table of Contents
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Clone the repository:
+` 
+git clone https://github.com/your-username/Algo-Visualizer.git
+cd Algo-Visualizer
+`
+Install dependencies:
+`
+npm install
+`
+Start the development server:
+`
+npm run dev
+`
